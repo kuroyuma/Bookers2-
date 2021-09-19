@@ -1,2 +1,20 @@
 <h1>Books#show</h1>
 <p>Find me in app/views/books/show.html.erb</p>
+<body>
+  <%= flash[:notice] %>
+  <p>
+    <strong>Title:</strong>
+    <%= @book.title %>
+  </p>
+  <p>
+    <strong>Body:</strong>
+    <%= @book.body %>
+  </p>
+  <div>
+    <p><%= link_to "Edit",edit_book_path(@book) %></p>
+    <p></p>
+　  <p><a href="/books">back</a></p>
+　</div>
+
+
+</body>

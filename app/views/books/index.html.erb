@@ -1,2 +1,13 @@
 <h1>Books#index</h1>
 <p>Find me in app/views/books/index.html.erb</p>
+<body>
+  <%= flash[:notice] %>
+  <p>
+    <strong>Title:</strong>
+    <%= @book.title %>
+  </p>
+  <p>
+    <strong>Body:</strong>
+    <%= @book.body %>
+  </p>
+ 
