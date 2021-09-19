@@ -1,19 +1,66 @@
-<h1>Books#edit</h1>
-<p>Find me in app/views/books/edit.html.erb</p>
-<div class="edit">
- <h2><strong>Editing Book</strong></h2>
- <% if @book.errors.any? %>
-  <%= @book.errors.count %> error occurred
-  <% @book.errors.full_messages.each do |message| %>
-  <%= message %>
-  <% end %>
- <% end %>
+<html><head>
 
-  <%= form_with model: @book,url:"/books/#{@book.id}",local:true do |f| %>
-    <h4>Title</h4>
-    <%= f.text_field :title %>
-    <h4>body</h4>
-    <%= f.text_area :body %>
-    <%= f.submit 'Update Book' %>
-  <% end %>
-  <div>
+
+
+
+
+    <link rel="stylesheet" media="all" href="/assets/application-16605eadccf37c23d1fa922dd614f45b9f2cf25723e2e4032f1975b02ea7d11f.css" data-turbolinks-track="reload">
+    <script src="/assets/application-3ac47b8571e58aab844e8d0a988f0f55d8a16c1a75953470343f79cf1bec8528.js" data-turbolinks-track="reload"></script>
+  <title>Bookers2Ver2</title><meta name="csrf-param" content="authenticity_token"><meta name="csrf-token" content="cQk4rqJj0cvyDHE5X7fvV7rv0nPZkxUJS9RaG97JvJ/xMeBFGVl1o0iGaKoUCKugtx5O3/+YQ3JHv1OooQCXcw=="><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></head>
+  <body>
+    <header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/"><span>Bookers</span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+          <li><%= class="fas fa-home nav-link text-light" link_to"Home" ,user_path(@user) %></li>
+          <li><a class="fas fa-users nav-link text-light" href="/users"> Users</a></li>
+          <li><a class="fas fa-book-open nav-link text-light" href="/books"> Books</a></li>
+          <li><a class="fas fa-sign-out-alt nav-link text-light" rel="nofollow" data-method="delete" href="/users/sign_out"> logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+      <main>
+        <p id="notice"></p>
+        <div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+  		<h1>Editing Book</h1>
+
+  		<form action="/books/18508" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="E1bOllBSWj19fIvKF1ELha2mOiIn+IX55lj0NXlAbqvaVtBU4KgtxcofC0TT/ZOAJM6G97JdbOIRAxUzWgn+Vg==">
+  <div class="form-group">
+    <label for="book_title">Title</label>
+    <input class="form-control book_title" type="text" value="testoテスト" name="book[title]" id="book_title">
+  </div>
+  <div class="form-group">
+    <label for="book_opinion">Opinion</label>
+    <textarea class="form-control book_body" name="book[body]" id="book_body">oooo</textarea>
+  </div>
+  <div class="form-group">
+    <input type="submit" name="commit" value="Update Book" class="btn btn-success" data-disable-with="Update Book">
+  </div>
+</form>
+  		<a class="book_18508" href="/books/18508">Show</a> |
+  		<a class="back" href="/books">Back</a>
+  </div>
+</div>
+      </div></main>
+    <footer>
+  <div class="container mt-5">
+  	<div class="row">
+    	<div class="mx-auto">
+    		<p>CopyRight Infratop.inc</p>
+    	</div>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>
