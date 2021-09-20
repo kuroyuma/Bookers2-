@@ -3,6 +3,7 @@ class HomesController < ApplicationController
   end
   
   def about
+    @about = home_about_path
   end
 
 end
