@@ -1,7 +1,15 @@
 <h1>Books#show</h1>
 <p>Find me in app/views/books/show.html.erb</p>
 <body>
-  <%= flash[:notice] %>
+  
+  <%= form_for @book do |f| %>
+        <p>Title</p>
+        <%= f.text_field :title %>
+        <p>Opinion</p>
+        <%= f.text_area :body %>
+        <%= f.submit 'Create Book' %>
+  <% end %>
+ 
   <p>
     <strong>Title:</strong>
     <%= @book.title %>
