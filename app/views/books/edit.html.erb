@@ -10,7 +10,25 @@
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
   		<h1>Editing Book</h1>
 
-  		<form action="/books/18508" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="E1bOllBSWj19fIvKF1ELha2mOiIn+IX55lj0NXlAbqvaVtBU4KgtxcofC0TT/ZOAJM6G97JdbOIRAxUzWgn+Vg==">
+ <%= form_with model:@book, local: true do |f| %>
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+  <h4>Opinion</h4>
+  <%= f.text_area :body %>
+  <%= f.submit 'Update Back' %>
+   <% end %>
+
+  		
+  		<%= link_to "Show", book_path(@book.id) %>
+  		<a class="back" href="/books">Back</a>
+  </div>
+</div>
+      </div></main>
+
+</body></html>
+
+
+<form action="/books/18508" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="E1bOllBSWj19fIvKF1ELha2mOiIn+IX55lj0NXlAbqvaVtBU4KgtxcofC0TT/ZOAJM6G97JdbOIRAxUzWgn+Vg==">
   <div class="form-group">
     <label for="book_title">Title</label>
     <input class="form-control book_title" type="text" value="testoテスト" name="book[title]" id="book_title">
@@ -20,13 +38,6 @@
     <textarea class="form-control book_body" name="book[body]" id="book_body">oooo</textarea>
   </div>
   <div class="form-group">
-    <input type="submit" name="commit" value="Update Book" class="btn btn-success" data-disable-with="Update Book">
+    <%= link_to"Update Book",book_path(@book.id), class: "btn btn-success" %>
   </div>
-</form>
-  		<a class="book_18508" href="/books/18508">Show</a> |
-  		<a class="back" href="/books">Back</a>
-  </div>
-</div>
-      </div></main>
-
-</body></html>
+ </fo rm>
