@@ -1,32 +1,10 @@
 <body>
-<header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <li><%= link_to"Bookers" ,root_path %></li>
-      <!--<a class="navbar-brand" href="/"><span>Bookers</span></a>-->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
-          <li><%= link_to"Home" ,user_path(@user) %></li>
-          <li><%= link_to"Users" ,users_path %></li>
-          <!--<li><a class="fas fa-users nav-link text-light" href="/users"> Users</a></li>-->
-          <li><%= link_to"Books" ,books_path %></li>
-          <!--<li><a class="fas fa-book-open nav-link text-light" href="/books"> Books</a></li>-->
-          <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-          <!--<li><a class="fas fa-sign-out-alt nav-link text-light" rel="nofollow" data-method="delete" href="/users/sign_out"> logout</a></li>-->
-        </ul>
-      </div>
-    </div>
-  </nav>
-</header>
-
-
- <div class="container px-5 px-sm-0">
+<p id="notice"></p>
+<div class="container">
   <div class="row">
     <div class="col-md-3">
-      <h2>User info</h2>
+     
+        <h2>User info</h2>
       <img class="attachment user profile_image fallback" ><table class="table">
 
   <tbody>
@@ -45,8 +23,10 @@
 </table>
 
 <div class="row">
-  <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
-  <!--<a class="btn btn-outline-secondary btn-block fas fa-user-cog edit_user_22985" href="/users/22985/edit"></a>-->
+  <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-outline-secondary btn-block fas fa-user-cog" %></p>
+  <div class="row">
+  
+</div>
 </div>
 
   </table>
@@ -60,7 +40,7 @@
             <%= f.submit 'Create Book' %>
           <% end %>
 
-<div class="col-md-8 offset-md-1">
+    <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
       <table class="table table-hover table-inverse">
   <thead>
@@ -71,47 +51,21 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-  <tbody>
-    
-    
-      <tr>
+  <tr>
         <td><a href="/users/24003">
           <img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg">
-</a>        </td>
+           </a> </td>
         <td><a class="book_19263" href="/books/19263">vsrf</a></td>
         <td>sdvgrsg</td>
       </tr>
-      <tr>
-        <td><a href="/users/24003">
-          <img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg">
-</a>        </td>
-        <td><a class="book_19265" href="/books/19265">dvav</a></td>
-        <td>advvdvd</td>
-      </tr>
-      <tr>
-        <td><a href="/users/24003">
-          <img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg">
-</a>        </td>
-        <td><a class="book_19268" href="/books/19268">vsbfd</a></td>
-        <td>dvad</td>
-      </tr>
-      <tr>
-        <td><a href="/users/24003">
-          <img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg">
-</a>        </td>
-        <td><a class="book_19269" href="/books/19269">aegvsrg</a></td>
-        <td>dgvargva</td>
-      </tr>
-      <tr>
-        <td><a href="/users/24003">
-          <img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg">
-</a>        </td>
-        <td><a class="book_19274" href="/books/19274">dv ad</a></td>
-        <td>ascvadv</td>
-      </tr>
-  </tbody>
-</table>
-    </div>
+  
+     </div>
+  </div>
+</div>
+</div> 
+    
+      
+  
 
 
 </body>
