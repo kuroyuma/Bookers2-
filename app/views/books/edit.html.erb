@@ -1,43 +1,20 @@
-<html><head>
-    <link rel="stylesheet" media="all" href="/assets/application-16605eadccf37c23d1fa922dd614f45b9f2cf25723e2e4032f1975b02ea7d11f.css" data-turbolinks-track="reload">
-    <script src="/assets/application-3ac47b8571e58aab844e8d0a988f0f55d8a16c1a75953470343f79cf1bec8528.js" data-turbolinks-track="reload"></script>
-  <title>Bookers2Ver2</title><meta name="csrf-param" content="authenticity_token"><meta name="csrf-token" content="cQk4rqJj0cvyDHE5X7fvV7rv0nPZkxUJS9RaG97JvJ/xMeBFGVl1o0iGaKoUCKugtx5O3/+YQ3JHv1OooQCXcw=="><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></head>
-  <body>
-      <main>
-        <p id="notice"></p>
-        <div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-  		<h1>Editing Book</h1>
+<body>
+  <p id="notice"></p>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+  		  <h1>Editing Book</h1>
+        <%= form_with model:@book, local: true do |f| %>
+          <h4>Title</h4>
+          <%= f.text_field :title %>
+          <h4>Opinion</h4>
+          <%= f.text_area :body %>
+          <%= f.submit 'Update Back' %>
+        <% end %>
+        <%= link_to "Show", book_path(@book.id) %>
+  		  <%= link_to "Back", books_path %>
+      </div>
+    </div>
+  </div
+</body>
 
- <%= form_with model:@book, local: true do |f| %>
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-  <h4>Opinion</h4>
-  <%= f.text_area :body %>
-  <%= f.submit 'Update Back' %>
-   <% end %>
-
-  		
-  		<%= link_to "Show", book_path(@book.id) %>
-  		<a class="back" href="/books">Back</a>
-  </div>
-</div>
-      </div></main>
-
-</body></html>
-
-
-<form action="/books/18508" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="E1bOllBSWj19fIvKF1ELha2mOiIn+IX55lj0NXlAbqvaVtBU4KgtxcofC0TT/ZOAJM6G97JdbOIRAxUzWgn+Vg==">
-  <div class="form-group">
-    <label for="book_title">Title</label>
-    <input class="form-control book_title" type="text" value="testoテスト" name="book[title]" id="book_title">
-  </div>
-  <div class="form-group">
-    <label for="book_opinion">Opinion</label>
-    <textarea class="form-control book_body" name="book[body]" id="book_body">oooo</textarea>
-  </div>
-  <div class="form-group">
-    <%= link_to"Update Book",book_path(@book.id), class: "btn btn-success" %>
-  </div>
- </fo rm>

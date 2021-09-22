@@ -1,87 +1,58 @@
-<head>
-</head>
-
 <body>
-  <div class="container px-5 px-sm-0">
+<p id="notice"></p>
+<div class="container">
   <div class="row">
     <div class="col-md-3">
       <h2>User info</h2>
       <img class="attachment user profile_image fallback" ><table class="table">
-
-  <tbody>
-    <tr>
-      <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-    </tr>
-  <tr>
-	  <th>name</th>
-	  <th><%= @user.name %></th>
-  </tr>
-  <tr>
-	  <th>introduction</th>
-	  <th><%= @user.introduction %></th>
-  </tr>
-</tbody>
-</table>
-
-<div class="row">
-  <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
-  <!--<a class="btn btn-outline-secondary btn-block fas fa-user-cog edit_user_22985" href="/users/22985/edit"></a>-->
-</div>
-
-    </table>
-
-
-    </table>
-
-        <h2>New book</h2>
-
-          <%= form_with model:@book,local:true do |f| %>
-           <h4>Title</h4>
-            <%= f.text_field :title %>
-           <h4>Opinion</h4>
-            <%= f.text_area :body %>
-            <%= f.submit 'Create Book' %>
-          <% end %>
-
-
-
-<div class="col-md-8 offset-md-1">
-<h2>Books</h2>
-<table class="table table-hover table-inverse">
-<thead>
-<tr>
-<th></th>
-<th>Title</th>
-<th>Opinion</th>
-<th colspan="3"></th>
-</tr>
-</thead>
-<tbody>
-  <tr>
-  <td><a href="/users/23758">
-    <img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg">
-</a>        </td>
-  <td><a class="book_19091" href="/books/19091">おおおおおお</a></td>
-  <td>あdcっd</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-　　　　　<tbody>
-        　<% @books.each do |book| %>
+        <tbody>
           <tr>
-
-            <td><%= book.title %></td>
-            <td><%= book.body %></td>
-            <td><%= link_to "show", book_path(book.id) %></td>
-            <td><%= link_to "edit", edit_book_path(book.id) %></td>
-            <td><%= link_to "destroy", book_path(book.id), method: :delete %></td>
-
+            <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
           </tr>
-　　　　　<% end %>
+          <tr>
+	          <th>name</th>
+	          <th><%= @user.name %></th>
+          </tr>
+          <tr>
+	          <th>introduction</th>
+	          <th><%= @user.introduction %></th>
+          </tr>
         </tbody>
+      </table>
+      <div class="row">
+        <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-outline-secondary btn-block fas fa-user-cog" %></p>
+      </div>
+      <h2>New book</h2>
+      <%= form_with model:@book,local:true do |f| %>
+        <h4>Title</h4>
+        <%= f.text_field :title %>
+        <h4>Opinion</h4>
+        <%= f.text_area :body %>
+        <%= f.submit 'Create Book' %>
+      <% end %>
 
-
+      <div class="col-md-8 offset-md-1 ">
+        <h2>Books</h2>
+          <table class="table table-hover table-inverse">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Opinion</th>
+                <th colspan="3"></th>
+            </thead>
+          <tbody>
+            <% @books.each do |book| %>
+              <tr>
+                <td><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></td>
+                <td><%= book.title %></td>
+                <td><%= book.body %></td>
+              </tr>
+            <% end %>
+          </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+</div>
 </body>

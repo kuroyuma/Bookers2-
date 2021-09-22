@@ -1,136 +1,58 @@
 <body>
-
- <div class="container px-5 px-sm-0">
+<p id="notice"></p>
+<div class="container">
   <div class="row">
     <div class="col-md-3">
       <h2>User info</h2>
       <img class="attachment user profile_image fallback" ><table class="table">
+        <tbody>
+          <tr>
+            <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+          </tr>
+          <tr>
+	          <th>name</th>
+	          <th><%= @user.name %></th>
+          </tr>
+          <tr>
+	          <th>introduction</th>
+	          <th><%= @user.introduction %></th>
+          </tr>
+        </tbody>
+      </table>
+      <div class="row">
+        <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-outline-secondary btn-block fas fa-user-cog" %></p>
+      </div>
+      <h2>New book</h2>
+      <%= form_with model:@book,local:true do |f| %>
+        <h4>Title</h4>
+        <%= f.text_field :title %>
+        <h4>Opinion</h4>
+        <%= f.text_area :body %>
+        <%= f.submit 'Create Book' %>
+      <% end %>
 
-  <tbody>
-    <tr>
-      <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-    </tr>
-  <tr>
-	  <th>name</th>
-	  <th><%= @user.name %></th>
-  </tr>
-  <tr>
-	  <th>introduction</th>
-	  <th><%= @user.introduction %></th>
-  </tr>
-</tbody>
-</table>
-
-<div class="row">
-  <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
-  <!--<a class="btn btn-outline-secondary btn-block fas fa-user-cog edit_user_22985" href="/users/22985/edit"></a>-->
-</div>
-
-    </table>
-
-        <h2>New book</h2>
-
-          <%= form_with model:@book,local:true do |f| %>
-           <h4>Title</h4>
-            <%= f.text_field :title %>
-           <h4>Opinion</h4>
-            <%= f.text_area :body %>
-            <%= f.submit 'Create Book' %>
-          <% end %>
-<div class="col-md-8 offset-md-1">
-      <h2>Users</h2>
-      <table class="table">
-  <thead>
-    <tr>
-      <th>image</th>
-      <th>name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-      <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg"></td>
-        <td>Olivia</td>
-        <td><a class="user_23996" href="/users/23996">Show</a></td>
-      </tr>
-      <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg"></td>
-        <td>サンプルタロウ</td>
-        <td><a class="user_23997" href="/users/23997">Show</a></td>
-      </tr>
-      <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg"></td>
-        <td>Lucas</td>
-        <td><a class="user_23998" href="/users/23998">Show</a></td>
-      </tr>
-      <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg"></td>
-        <td>kom</td>
-        <td><a class="user_23999" href="/users/23999">Show</a></td>
-      </tr>
-      <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg"></td>
-        <td>亀井直樹</td>
-        <td><a class="user_24000" href="/users/24000">Show</a></td>
-      </tr>
-      <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg"></td>
-        <td>enndou</td>
-        <td><a class="user_24001" href="/users/24001">Show</a></td>
-      </tr>
-      <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg"></td>
-        <td>T.T</td>
-        <td><a class="user_24002" href="/users/24002">Show</a></td>
-      </tr>
-      <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg"></td>
-        <td>kgwrk</td>
-        <td><a class="user_24003" href="/users/24003">Show</a></td>
-      </tr>
-      <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg"></td>
-        <td>yama</td>
-        <td><a class="user_24004" href="/users/24004">Show</a></td>
-      </tr>
-      <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg"></td>
-        <td>qq</td>
-        <td><a class="user_24005" href="/users/24005">Show</a></td>
-      </tr>
-      <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg"></td>
-        <td>ayaka</td>
-        <td><a class="user_24007" href="/users/24007">Show</a></td>
-      </tr>
-      <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg"></td>
-        <td>ryu1</td>
-        <td><a class="user_24008" href="/users/24008">Show</a></td>
-      </tr>
-      <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg"></td>
-        <td>kanari</td>
-        <td><a class="user_24006" href="/users/24006">Show</a></td>
-      </tr>
-      <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg"></td>
-        <td>noinoi</td>
-        <td><a class="user_24009" href="/users/24009">Show</a></td>
-      </tr>
-      <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg"></td>
-        <td>ka</td>
-        <td><a class="user_24010" href="/users/24010">Show</a></td>
-      </tr>
-      <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg"></td>
-        <td>eiki</td>
-        <td><a class="user_24011" href="/users/24011">Show</a></td>
-      </tr>
-  </tbody>
-</table>
-
+      <div class="col-md-8 offset-md-1 ">
+        <h2>Users</h2>
+          <table class="table table-hover table-inverse">
+            <thead>
+              <tr>
+                <th>image</th>
+                <th>name</th>
+                <th></th>
+                <th colspan="3"></th>
+            </thead>
+          <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></td>
+                <td><%= user.name %></td>
+                <td><%= link_to "show", users_path %></td>
+              </tr>
+            <% end %>
+          </tbody>
+          </table>
+      </div>
     </div>
-
- </body>
+  </div>
+</div>
+</body>
