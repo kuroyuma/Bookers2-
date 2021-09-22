@@ -1,34 +1,28 @@
 <main>
-  <% if @user.errors.any? %>
-    <%= @user.errors.count %>error occurred
-    <% @user.errors.full_messages.each do |message| %>
-    <%= message %>
-  <% end %>
-  <% end %>
-  <p id="notice"></p>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <h2>User info</h2>
-      <%= form_with model:@user, local:true do |f| %>
-        <div class="form-group">
-          <label for="inputName">Name</label>
-          <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%>
-        </div>
-        <div class="form-group">
-          <label for="inputImage">Image</label>
-          <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
-        </div>
-        <div class="form-group">
-          <label for="user_introduction">Introduction</label>
-          <textarea class="form-control introduction" name="user[introduction]" id="user_introduction"></textarea>
-        </div>
-        <div class="form-group">
-          <%= f.submit "変更を保存" %>
-        </div>
-        <% end %>
+        <p id="notice"></p>
+        <div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <h2>User info</h2>
+    <form enctype="multipart/form-data" action="/users/24647" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="A/BUrangw3CAkAiwwdAQGCcE23ywvrcZGfqtyiuhzQu4wnzh7GXztC4+2XF45Xjp0RW2i5BF5+XTh0rsWYM2qQ==">
+      
+      <div class="form-group">
+        <label for="user_name">Name</label>
+        <input class="form-control name" type="text" value="" name="user[name]" id="user_name">
       </div>
-    </div>
-  </div>
-</main>
+     <div class="form-group">
+        <label for="user_image">Image</label>
+        <input value="{}" data-reference="c711424e585c320421c77919e48faf8f" type="hidden" name="user[profile_image]"><input class="form-control-file user_image" data-reference="c711424e585c320421c77919e48faf8f" include_hidden="false" type="file" name="user[profile_image]" id="user_profile_image">
+      </div>
+      <div class="form-group">
+        <label for="user_introduction">Introduction</label>
+        <textarea class="form-control introduction" name="user[introduction]" id="user_introduction"></textarea>
+      </div>
+      <div class="form-group">
+        <input type="submit" name="commit" value="Update User" class="btn btn-secondary" data-disable-with="Update User">
+      </div>
+</form>  </div>
+</div>
+
+      </div></main>
 
