@@ -1,0 +1,27 @@
+<h2>User info</h2>
+      <img class="attachment user profile_image fallback" ><table class="table">
+        <tbody>
+          <tr>
+            <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %> <!--@user→user-->
+          </tr>
+          <tr>
+	          <th>name</th>
+	          <th><%= user.name %></th>  <!--@user→user-->
+          </tr>
+          <tr>
+	          <th>introduction</th>
+	          <th><%= user.introduction %></th> <!--@user→user-->
+          </tr>
+        </tbody>
+      </table>
+      <div class="row">
+        <p><%= link_to "プロフィール編集", edit_user_path(user), class: "btn btn-outline-secondary btn-block fas fa-user-cog" %></p> <!--@user→user-->
+      </div>
+      <h2>New book</h2>
+      <%= form_with model:book,local:true do |f| %>  <!--@book→book-->
+        <h4>Title</h4>
+        <%= f.text_field :title %>
+        <h4>Opinion</h4>
+        <%= f.text_area :body %>
+        <%= f.submit 'Create Book' %>
+      <% end %>
