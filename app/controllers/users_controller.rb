@@ -23,8 +23,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(@user.id), notice: 'You have successfully changed your profile！！'
+    if @user.update(user_params)
+      redirect_to user_path(@user.id), notice: 'You have successfully changed your profile！！'
+    else
+      render :edit
+    end
   end
 
 
