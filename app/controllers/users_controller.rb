@@ -2,14 +2,15 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @user = current_user
+    @book = Book.new
   end
 
   def create
     @book = Book.new(book_params)
     @book.save
-    redirect_to book_path(id: current_user)
+    redirect_to book_path(id: current_user),notice: 'The post was successfully！！'
   end
-  
+
   def show
     @user = User.find(params[:id])
     @book = Book.new
@@ -19,6 +20,11 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    if @user == current_user
+      render "edit"
+    else
+      redirect_to user_path(id: current_user)
+    end
   end
 
   def update

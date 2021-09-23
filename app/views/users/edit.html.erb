@@ -1,9 +1,16 @@
+
+<% if @user.errors.any? %>
+<%= @user.errors.count %>error occurred
+<% @user.errors.full_messages.each do |message| %>
+<%= message %>
+<% end %>
+<% end %>
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
     <h2>User info</h2>
     <!--<form enctype="multipart/form-data" action="current_user" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="D/4yGq11YyYJJ0L3LC2kFdJsPR6VD8vumXvW3dDMDzaBIiImeCmikIcYrt2Pd1epHMaGdls7TKOBsQBTe1Sdvw==">-->
-    <%= form_with model:@user, local:true do |f| %>  
+    <%= form_with model:@user, local:true do |f| %>
       <div class="form-group">
         <label for="inputName">Name</label>
         <!--<label for="user_name">Name</label>-->
@@ -13,15 +20,15 @@
       <div class="form-group">
         <label for="inputImage">Image</label>
         <!--<label for="user_image">Image</label>-->
-        <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>  
+        <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
         <!--<input value="{}" data-reference="57cc1b9bd01dbece7c2e99774ff63090" type="hidden" name="user[profile_image]"><input class="form-control-file user_image" data-reference="57cc1b9bd01dbece7c2e99774ff63090" include_hidden="false" type="file" name="user[profile_image]" id="user_profile_image">-->
       </div>
       <div class="form-group">
         <label for="user_introduction">Introduction</label>
-        <textarea class="form-control introduction" name="user[introduction]" id="user_introduction"></textarea>
+        <%= f.text_area :introduction, autofocus: true, id:"inputName", placeholder:""%>
       </div>
       <div class="form-group">
-        <%= f.submit "変更を保存" %>
+        <%= f.submit "Update User" %>
       </div>
       <% end %>
     </div>
